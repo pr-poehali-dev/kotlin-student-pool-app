@@ -7,13 +7,15 @@ import Icon from '@/components/ui/icon';
 
 interface ProfileProps {
   onNavigate: (page: string) => void;
+  user: any;
+  onLogout: () => void;
 }
 
-export default function Profile({ onNavigate }: ProfileProps) {
+export default function Profile({ onNavigate, user, onLogout }: ProfileProps) {
   const userInfo = {
-    name: 'Иван Иванов',
-    email: 'ivan@university.edu',
-    phone: '+7 (900) 123-45-67',
+    name: user?.name || 'Пользователь',
+    email: user?.email || 'email@example.com',
+    phone: user?.phone || '+7 (000) 000-00-00',
     status: 'Студент',
     visits: 24,
   };
@@ -161,7 +163,7 @@ export default function Profile({ onNavigate }: ProfileProps) {
         <Button
           variant="outline"
           className="w-full"
-          onClick={() => onNavigate('login')}
+          onClick={onLogout}
         >
           <Icon name="LogOut" size={18} className="mr-2" />
           Выйти

@@ -14,6 +14,7 @@ import {
 
 interface ScheduleProps {
   onNavigate: (page: string) => void;
+  user: any;
 }
 
 interface Session {
@@ -26,7 +27,7 @@ interface Session {
   specialization: string;
 }
 
-export default function Schedule({ onNavigate }: ScheduleProps) {
+export default function Schedule({ onNavigate, user }: ScheduleProps) {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [loading, setLoading] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
@@ -86,7 +87,7 @@ export default function Schedule({ onNavigate }: ScheduleProps) {
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId: 1, sessionId }),
+        body: JSON.stringify({ userId: user?.id || 1, sessionId }),
       });
       
       const data = await response.json();
@@ -233,7 +234,7 @@ export default function Schedule({ onNavigate }: ScheduleProps) {
                           <TableCell key={index} className="p-2">
                             <div className="space-y-1">
                               <div className="text-xs text-muted-foreground truncate">
-                                {session.instructor}
+                                Тренер: {session.instructor}
                               </div>
                               <div className="text-xs font-medium">
                                 {session.availableSpots}/{session.maxCapacity}

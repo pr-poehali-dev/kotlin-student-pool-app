@@ -5,9 +5,10 @@ import Icon from '@/components/ui/icon';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
+  user: any;
 }
 
-export default function Home({ onNavigate }: HomeProps) {
+export default function Home({ onNavigate, user }: HomeProps) {
   const news = [
     {
       id: 1,
@@ -44,7 +45,7 @@ export default function Home({ onNavigate }: HomeProps) {
         <div className="max-w-2xl mx-auto">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <h1 className="text-3xl font-bold mb-2">Привет, Иван! 👋</h1>
+              <h1 className="text-3xl font-bold mb-2">Привет, {user?.name?.split(' ')[0] || 'Гость'}! 👋</h1>
               <p className="text-primary-foreground/80">
                 Студенческий бассейн
               </p>
