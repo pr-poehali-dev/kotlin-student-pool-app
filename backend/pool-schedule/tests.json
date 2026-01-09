@@ -1,0 +1,10 @@
+{
+  "tests": [
+    {
+      "name": "Get sessions for today",
+      "method": "GET",
+      "path": "/?date=2026-01-09",
+      "expectedStatus": 200
+    }
+  ]
+}

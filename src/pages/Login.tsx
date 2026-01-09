@@ -22,11 +22,13 @@ export default function Login({ onNavigate }: LoginProps) {
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <Card className="w-full max-w-md animate-fade-in border-none shadow-xl">
         <CardHeader className="space-y-4 pb-8">
-          <div className="w-16 h-16 mx-auto bg-primary/10 rounded-3xl flex items-center justify-center">
-            <Icon name="Waves" size={32} className="text-primary" />
-          </div>
-          <CardTitle className="text-3xl font-semibold text-center">
-            Добро пожаловать
+          <img 
+            src="https://cdn.poehali.dev/files/image.png" 
+            alt="University Logo" 
+            className="w-24 h-24 mx-auto object-contain rounded-2xl"
+          />
+          <CardTitle className="text-3xl font-bold text-center text-primary">
+            PacificPool
           </CardTitle>
           <CardDescription className="text-center text-base">
             Войдите в систему бассейна
